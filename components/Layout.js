@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Store } from '../utils/Store';
 
 export default function Layout({ title, children }) {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItemsCount, setCartItems] = useState(0);
   const { state } = useContext(Store);
   const { cart } = state;
   useEffect(() => {
@@ -26,9 +26,9 @@ export default function Layout({ title, children }) {
             <div>
               <Link href="/cart" className="p-2">
                 Cart
-                {cartItems.length > 0 && (
+                {cartItemsCount > 0 && (
                   <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
-                    {cartItems}
+                    {cartItemsCount}
                   </span>
                 )}
               </Link>
